@@ -339,8 +339,18 @@ body {
         max-height: 200px;
     }
 
+    .caret {
+        position: absolute;
+        margin-top: 7%;
+        margin-left: 3%;
+    }
+
     .calculator {
         width: 100%;
         max-width: 300px;
+    }
+
+    .cursor-shadow {
+        display: none;
     }
 }

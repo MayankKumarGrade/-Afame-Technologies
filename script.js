@@ -7,10 +7,11 @@ document.addEventListener('DOMContentLoaded', function () {
     const clearHistoryButton = document.getElementById('clearHistoryButton');
     const title = document.getElementById('title');
     const starContainer = document.querySelector('.stars');
-    const numberOfStars = 200;
+    const numberOfStars = 200; // Reduced number of stars for better performance
     
     let currentInput = '';
     let calculationHistory = [];
+    let longPressTimer;
 
     // Create a shadow element for the cursor
     const cursor = document.createElement('div');
@@ -74,6 +75,25 @@ document.addEventListener('DOMContentLoaded', function () {
         } else if (e.key === 'Escape') {
             handleInput('C');
         }
+    });
+
+    // Handle backspace long press
+    const backspaceButton = document.querySelector('.btn.backspace');
+    backspaceButton.addEventListener('mousedown', function () {
+        longPressTimer = setTimeout(function () {
+            currentInput = '';
+            display.value = currentInput;
+            updateCaretPosition();
+        }, 500); // Time to detect long press (500ms)
+    });
+
+    backspaceButton.addEventListener('mouseup', function () {
+        clearTimeout(longPressTimer);
+        handleInput('Backspace');
+    });
+
+    backspaceButton.addEventListener('mouseleave', function () {
+        clearTimeout(longPressTimer);
     });
 
     // Function to handle calculator input
@@ -140,6 +160,5 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 100);
         }
     }
-
     typeWriter(titleText, 0);
 });
