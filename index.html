@@ -3,68 +3,83 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Basic Calculator</title>
+    <meta name="description" content="Free online basic calculator for arithmetic operations. Perform addition, subtraction, multiplication, and division effortlessly.">
+    <meta name="keywords" content="basic calculator, online calculator, free calculator, arithmetic calculator, calculator tool">
+    <meta name="author" content="Mayank Kumar Grade">
+    <title>Online Basic Calculator - Free Arithmetic Calculator Tool</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="canonical" href="https://mayankkumargrade.github.io/-Afame-Technologies/">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Online Basic Calculator",
+        "description": "A free online calculator for performing basic arithmetic operations including addition, subtraction, multiplication, and division.",
+        "url": "https://mayankkumargrade.github.io/-Afame-Technologies/",
+        "applicationCategory": "Utility",
+        "operatingSystem": "All"
+    }
+    </script>
 </head>
 <body>
 
-    <div class="title-container">
-        <h1 id="title">Calculator.</h1>
-    </div>
+    <header>
+        <div class="title-container">
+            <h1 id="title">Online Basic Calculator - Free Arithmetic Calculator Tool</h1>
+        </div>
+    </header>
 
-    <div class="container">
-
-        <div class="stars"></div>
+    <main class="container">
+        <div class="stars" aria-hidden="true"></div>
 
         <!-- Calculator -->
-        <div class="calculator-container">
+        <section class="calculator-container" aria-labelledby="title">
             <div class="calculator">
                 <div class="display">
-                    <input type="text" id="display" readonly>
-                    <div class="caret"></div>
+                    <input type="text" id="display" readonly aria-label="Calculator display">
+                    <div class="caret" aria-hidden="true"></div>
                     <button id="historyButton" class="history" aria-label="Toggle History Panel">
                         <i class="fa fa-history" aria-hidden="true"></i>
                     </button>
                 </div>
-                <div class="buttons">
+                <div class="buttons" aria-label="Calculator buttons">
                     <button class="btn clear" data-value="C" style="grid-column: span 3;">C</button>
-                    <button class="btn backspace" data-value="Backspace"><i class="fas fa-backspace"></i></button>
-                    <button class="btn number" data-value="7">7</button>
-                    <button class="btn number" data-value="8">8</button>
-                    <button class="btn number" data-value="9">9</button>
-                    <button class="btn operator" data-value="/">/</button>
-                    <button class="btn number" data-value="4">4</button>
-                    <button class="btn number" data-value="5">5</button>
-                    <button class="btn number" data-value="6">6</button>
-                    <button class="btn operator" data-value="*">*</button>
-                    <button class="btn number" data-value="1">1</button>
-                    <button class="btn number" data-value="2">2</button>
-                    <button class="btn number" data-value="3">3</button>
-                    <button class="btn operator" data-value="-">-</button>
-                    <button class="btn number" data-value=".">.</button>
-                    <button class="btn number" data-value="0">0</button>
-                    <button class="btn number" data-value="00">00</button>
-                    <button class="btn operator" data-value="+">+</button>
-                    <button class="btn equals" data-value="=" style="grid-column: span 4;">=</button>
+                    <button class="btn backspace" data-value="Backspace" aria-label="Backspace"><i class="fas fa-backspace"></i></button>
+                    <button class="btn number" data-value="7" aria-label="Number 7">7</button>
+                    <button class="btn number" data-value="8" aria-label="Number 8">8</button>
+                    <button class="btn number" data-value="9" aria-label="Number 9">9</button>
+                    <button class="btn operator" data-value="/" aria-label="Divide">/</button>
+                    <button class="btn number" data-value="4" aria-label="Number 4">4</button>
+                    <button class="btn number" data-value="5" aria-label="Number 5">5</button>
+                    <button class="btn number" data-value="6" aria-label="Number 6">6</button>
+                    <button class="btn operator" data-value="*" aria-label="Multiply">*</button>
+                    <button class="btn number" data-value="1" aria-label="Number 1">1</button>
+                    <button class="btn number" data-value="2" aria-label="Number 2">2</button>
+                    <button class="btn number" data-value="3" aria-label="Number 3">3</button>
+                    <button class="btn operator" data-value="-" aria-label="Subtract">-</button>
+                    <button class="btn number" data-value="." aria-label="Decimal Point">.</button>
+                    <button class="btn number" data-value="0" aria-label="Number 0">0</button>
+                    <button class="btn number" data-value="00" aria-label="Number 00">00</button>
+                    <button class="btn operator" data-value="+" aria-label="Add">+</button>
+                    <button class="btn equals" data-value="=" style="grid-column: span 4;" aria-label="Equals">=</button>
                 </div>
             </div>
 
             <!-- History Panel -->
-            <div class="history-panel" id="historyPanel">
-                <div class="history-title">
+            <div class="history-panel" id="historyPanel" aria-labelledby="historyTitle">
+                <div class="history-title" id="historyTitle">
                     History
                     <button id="clearHistoryButton" class="clear-history-button" aria-label="Clear History">
-                        <i class="fa fa-trash-alt"></i>
+                        <i class="fa fa-trash-alt" aria-hidden="true"></i>
                     </button>
                 </div>
-                <div id="fullHistory"></div>
+                <div id="fullHistory" aria-live="polite"></div>
             </div>
+        </section>
+    </main>
 
-        </div>
-    </div>
-
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
 </body>
 </html>
