@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const clearHistoryButton = document.getElementById('clearHistoryButton');
     const title = document.getElementById('title');
     const starContainer = document.querySelector('.stars');
-    const numberOfStars = 500;
+    const numberOfStars = 200;
     
     let currentInput = '';
     let calculationHistory = [];
@@ -21,14 +21,14 @@ document.addEventListener('DOMContentLoaded', function () {
     function createStar() {
         const star = document.createElement('div');
         star.className = 'star';
-        const size = Math.random() * 2 + 1; // Random size between 1 and 3
+        const size = Math.random() * 2 + 1;
         star.style.width = `${size}px`;
         star.style.height = `${size}px`;
         star.style.top = `${Math.random() * 100}vh`;
         star.style.left = `${Math.random() * 100}vw`;
 
         // Random animation
-        const animationDuration = Math.random() * 5 + 5; // Between 5 and 10 seconds
+        const animationDuration = Math.random() * 5 + 5;
         star.style.animation = `move ${animationDuration}s linear infinite`;
 
         starContainer.appendChild(star);
@@ -124,7 +124,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const textWidth = display.scrollWidth;
         const caretWidth = caret.offsetWidth;
 
-        caret.style.left = `${displayWidth - caretWidth}px`; // Adjust to right end
+        caret.style.left = `${displayWidth - caretWidth}px`;
         caret.style.top = `calc(50% - ${caret.offsetHeight / 2}px)`;
     }
 
