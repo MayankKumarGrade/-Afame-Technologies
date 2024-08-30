@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator with Cursor Shadow</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <div class="title-container">
+        <h1 id="title">Calculator.</h1>
+    </div>
+    <div class="stars"></div>
+    <div class="container">
+        <div class="stars"></div>
+        <!-- Calculator -->
+        <div class="calculator-container">
+            <div class="calculator">
+                <div class="display">
+                    <input type="text" id="display" readonly>
+                    <div class="caret"></div>
+                    <button id="historyButton" class="history" aria-label="Toggle History Panel">
+                        <i class="fa fa-history" aria-hidden="true"></i>
+                    </button>
+                </div>
+                <div class="buttons">
+                    <button class="btn clear" data-value="C" style="grid-column: span 3;">C</button>
+                    <button class="btn backspace" data-value="Backspace"><i class="fas fa-backspace"></i></button>
+                    <button class="btn number" data-value="7">7</button>
+                    <button class="btn number" data-value="8">8</button>
+                    <button class="btn number" data-value="9">9</button>
+                    <button class="btn operator" data-value="/">/</button>
+                    <button class="btn number" data-value="4">4</button>
+                    <button class="btn number" data-value="5">5</button>
+                    <button class="btn number" data-value="6">6</button>
+                    <button class="btn operator" data-value="*">*</button>
+                    <button class="btn number" data-value="1">1</button>
+                    <button class="btn number" data-value="2">2</button>
+                    <button class="btn number" data-value="3">3</button>
+                    <button class="btn operator" data-value="-">-</button>
+                    <button class="btn number" data-value=".">.</button>
+                    <button class="btn number" data-value="0">0</button>
+                    <button class="btn number" data-value="00">00</button>
+                    <button class="btn operator" data-value="+">+</button>
+                    <button class="btn equals" data-value="=" style="grid-column: span 4;">=</button>
+                </div>
+            </div>
+
+            <!-- History Panel -->
+            <div class="history-panel" id="historyPanel">
+                <div class="history-title">
+                    History
+                    <button id="clearHistoryButton" class="clear-history-button" aria-label="Clear History">
+                        <i class="fa fa-trash-alt"></i>
+                    </button>
+                </div>
+                <div id="fullHistory"></div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
