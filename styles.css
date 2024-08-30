@@ -12,7 +12,6 @@ body {
     cursor: none;
     padding: 0;
     overflow-x: hidden;
-    scrollbar-width: none;
 }
 
 #title {
@@ -108,9 +107,7 @@ body {
     max-width: 400px;
     padding: 10px;
     flex-shrink: 0;
-    
 }
-
 
 .display {
     background-color: #333;
@@ -137,6 +134,7 @@ body {
     outline: none;
     overflow: auto;
     scrollbar-width: none;
+    cursor: none;
 }
 
 .buttons {
@@ -290,7 +288,13 @@ body {
 }
 
 .history:hover {
-    color:#20b4f9c7;
+    color: #20b4f9c7;
+}
+
+@media (max-width: 1200px) {
+    #title {
+        font-size: 1.8em;
+    }
 }
 
 @media (max-width: 900px) {
@@ -313,6 +317,10 @@ body {
         justify-content: center;
         align-items: center;
         overflow-y: auto;
+    }
+
+    #title {
+        font-size: 1.6em;
     }
 }
 
@@ -338,6 +346,10 @@ body {
         display: block;
         margin-top: 10px;
         max-height: 200px;
+    }
+
+    #title {
+        font-size: 1.4em;
     }
 
     .caret {
