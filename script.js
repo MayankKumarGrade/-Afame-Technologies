@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const clearHistoryButton = document.getElementById('clearHistoryButton');
     const title = document.getElementById('title');
     const starContainer = document.querySelector('.stars');
-    const numberOfStars = 200; // Reduced number of stars for better performance
+    const numberOfStars = 200;
     
     let currentInput = '';
     let calculationHistory = [];
@@ -84,7 +84,7 @@ document.addEventListener('DOMContentLoaded', function () {
             currentInput = '';
             display.value = currentInput;
             updateCaretPosition();
-        }, 500); // Time to detect long press (500ms)
+        }, 500);
     });
 
     backspaceButton.addEventListener('mouseup', function () {
