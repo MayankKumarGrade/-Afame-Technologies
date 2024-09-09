@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const title = document.getElementById('title');
     const starContainer = document.querySelector('.stars');
     const numberOfStars = 200;
-    
+
     let currentInput = '';
     let calculationHistory = [];
     let longPressTimer;
@@ -91,22 +91,30 @@ document.addEventListener('DOMContentLoaded', function () {
         } else if (input === '=') {
             calculateResult();
         } else {
-            currentInput += input;
-            display.value = currentInput;
+            // Map displayed operators to logical operators
+            const operatorMap = {
+                '÷': '/',
+                'x': '*'
+            };
+            currentInput += operatorMap[input] || input;
+            display.value = currentInput.replace(/\*/g, 'x').replace(/\//g, '÷');
         }
         updateCaretPosition();
-    }
-
+    }    
+        
     // Function to calculate the result
     function calculateResult() {
         try {
+            // Convert the input to use logical operators
             const sanitizedInput = currentInput.replace(/[^-()\d/*+.]/g, '');
             if (sanitizedInput) {
+                // Evaluate the expression
                 const result = Function('"use strict";return (' + sanitizedInput + ')')();
                 if (result === Infinity || result === -Infinity) {
                     throw new Error("Divide by zero");
                 }
-                calculationHistory.push(currentInput + ' = ' + result);
+                // Store history with visual operators
+                calculationHistory.push(currentInput.replace(/\*/g, 'x').replace(/\//g, '÷') + ' = ' + result);
                 fullHistory.innerHTML = calculationHistory.join('<br>');
                 currentInput = result.toString();
                 display.value = currentInput;
@@ -120,7 +128,7 @@ document.addEventListener('DOMContentLoaded', function () {
             currentInput = '';
         }
     }
-
+    
     // Function to update caret position
     function updateCaretPosition() {
         const caret = document.querySelector('.caret');
