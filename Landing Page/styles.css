@@ -1,25 +1,27 @@
-/* General Styles */
 body {
     font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
     overflow-x: hidden;
-    background-color: #f5f5f5;
+    background-color: #f0f0f5;
     color: #333;
+    scroll-behavior: smooth;
+    background: linear-gradient(135deg, #f0f0f5 0%, #c1c1c1 100%);
 }
 
-/* Particle Background */
+section {
+    min-height: 80vh;
+    padding: 100px 0;
+}
+
 #particles-js {
     position: absolute;
     width: 100%;
     height: 100%;
     z-index: -1;
     background-color: #333;
-    background-size: cover;
-    background-position: 50% 50%;
 }
 
-/* Header */
 header {
     display: flex;
     justify-content: space-between;
@@ -30,15 +32,42 @@ header {
     position: sticky;
     top: 0;
     z-index: 1000;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.5s, box-shadow 0.5s;
+}
+
+.highlight {
+    font-weight: bold;
+}
+
+.orange {
+    color: orange;
+}
+
+.white {
+    color: white;
+}
+
+header:hover {
+    background-color: rgba(197, 197, 197, 0.682);
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+header .logo {
+    display: flex;
+    align-items: center;
+    animation: bounceIn 1s ease-out;
+}
+
+header .logo img {
+    max-width: 50px;
+    margin-right: 15px;
 }
 
 header .logo h1 {
-    font-size: 24px;
+    font-size: 26px;
     font-weight: 700;
-}
-
-header .logo .highlight {
-    color: #ff7e5f;
+    color: #fe7b00;
 }
 
 header nav ul {
@@ -51,88 +80,113 @@ header nav ul li a {
     color: white;
     text-decoration: none;
     font-weight: 500;
-    transition: color 0.3s;
+    font-size: 16px;
+    padding: 10px;
+    border-radius: 8px;
+    transition: background-color 0.3s, color 0.3s, transform 0.3s;
 }
 
 header nav ul li a:hover {
-    color: #ff7e5f;
+    background-color: #ffffffe8;
+    color: #333;
+    transform: scale(1.1);
 }
 
-header .contact-info a {
-    color: white;
-    text-decoration: none;
-    font-size: 14px;
-    margin-left: 15px;
-    transition: color 0.3s;
-}
-
-header .contact-info a:hover {
-    color: #ff7e5f;
-}
-
-/* Hero Section */
 .hero {
-    padding: 150px 0;
+    padding: 200px 0;
     text-align: center;
     color: white;
-    background: linear-gradient(135deg, #ff7e5f, #feb27b);
+    background: linear-gradient(135deg, #1f1f1f, #fe7b00);
     position: relative;
     overflow: hidden;
+    clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+    transition: background 1s ease-in-out, transform 1s ease;
+}
+
+.hero:hover {
+    background: linear-gradient(135deg, #fe7b00, #1f1f1f);
 }
 
 .hero h2 {
-    font-size: 48px;
+    font-size: 50px;
     margin-bottom: 20px;
+    animation: fadeInUp 1s ease-out;
 }
 
 .hero .highlight {
     color: #fff;
-    text-decoration: underline;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 .hero p {
-    font-size: 18px;
+    font-size: 20px;
     margin-bottom: 30px;
 }
 
 .hero .btn {
-    padding: 10px 25px;
+    padding: 15px 30px;
     background-color: white;
     color: #ff7e5f;
-    text-decoration: none;
     font-weight: 600;
-    margin: 10px;
-    border-radius: 5px;
-    transition: background-color 0.3s, color 0.3s;
+    border-radius: 30px;
+    transition: background-color 0.3s, color 0.3s, transform 0.3s;
+    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
+    text-decoration: none;
 }
 
 .hero .btn:hover {
     background-color: #ff7e5f;
     color: white;
+    transform: scale(1.1);
 }
 
 .hero .btn-secondary {
     background-color: transparent;
     border: 2px solid white;
     color: white;
+    border-radius: 30px;
 }
 
 .hero .btn-secondary:hover {
     background-color: white;
     color: #ff7e5f;
+    transform: scale(1.1);
 }
 
-/* Services Section */
 .services {
-    padding: 80px 0;
-    background-color: #ffffff;
+    padding: 200px 0;
+    background-color: #fff;
     text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.services::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 200%;
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 50%;
+    transform: scale(1.5);
+    z-index: 0;
+    animation: pulse 10s infinite;
 }
 
 .services h2 {
     font-size: 36px;
     margin-bottom: 50px;
     color: #333;
+    transition: color 0.5s, transform 0.5s;
+    position: relative;
+    z-index: 1;
+}
+
+.services:hover h2 {
+    color: #ff7e5f;
+    transform: rotate(-5deg);
 }
 
 .service-cards {
@@ -140,87 +194,156 @@ header .contact-info a:hover {
     flex-wrap: wrap;
     justify-content: center;
     gap: 20px;
+    position: relative;
+    z-index: 1;
 }
 
 .service {
     background-color: #f9f9f9;
-    padding: 20px;
-    width: 250px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s;
+    padding: 30px;
+    width: 280px;
+    border-radius: 20px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s;
+    position: relative;
+    overflow: hidden;
 }
 
 .service:hover {
-    transform: scale(1.05);
+    transform: translateY(-10px);
+    box-shadow: 0 15px 20px rgba(0, 0, 0, 0.1);
+    background-color: #ffe4e1;
 }
 
 .service img {
-    width: 60px;
-    margin-bottom: 15px;
+    max-width: 100%;
+    border-radius: 10px;
+    transition: transform 0.3s;
+}
+
+.service:hover img {
+    transform: scale(1.1);
 }
 
 .service h3 {
-    font-size: 20px;
+    font-size: 22px;
     margin-bottom: 10px;
     color: #ff7e5f;
+    transition: color 0.3s;
 }
 
 .service p {
-    font-size: 14px;
+    font-size: 16px;
     color: #666;
 }
 
-/* About Us Section */
 .about-us {
-    padding: 80px 0;
-    background-color: #ff7e5f;
+    padding: 250px 20px;
+    background: linear-gradient(135deg, #ff7e5f 0%, #feb27b 100%);
     text-align: center;
     color: white;
+    position: relative;
+    overflow: hidden;
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+    animation: backgroundMotion 10s linear infinite;
+}
+
+.about-us::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    animation: pulse 15s infinite;
+    z-index: 0;
 }
 
 .about-us h2 {
-    font-size: 36px;
+    font-size: 48px;
     margin-bottom: 20px;
+    position: relative;
+    z-index: 1;
+    animation: fadeInUp 1s ease-out, bounceIn 1s ease-out;
 }
 
 .about-us p {
-    font-size: 18px;
+    font-size: 20px;
     margin-bottom: 30px;
+    position: relative;
+    z-index: 1;
+    animation: fadeInUp 1.5s ease-out;
 }
 
 .about-us .btn {
-    padding: 10px 25px;
-    background-color: white;
+    padding: 12px 30px;
+    background-color: #ffffff;
     color: #ff7e5f;
-    text-decoration: none;
+    border-radius: 30px;
+    border: 2px solid #ff7e5f;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+    position: relative;
+    z-index: 1;
     font-weight: 600;
-    border-radius: 5px;
-    transition: background-color 0.3s, color 0.3s;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-decoration: none;
+    box-shadow: 0px 4px 8px rgba(255, 87, 34, 0.5);
 }
 
 .about-us .btn:hover {
-    background-color: #feb27b;
-    color: white;
+    background-color: #ff7e5f;
+    color: #ffffff;
+    border-color: #ff7e5f;
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0px 8px 16px rgba(255, 87, 34, 0.7);
 }
 
-/* Projects Section */
 .projects {
-    padding: 80px 0;
-    background-color: #ffffff;
+    padding: 200px 0;
+    background-color: #fff;
     text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.projects::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 200%;
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 50%;
+    transform: scale(1.5);
+    z-index: 0;
+    animation: pulse 15s infinite;
 }
 
 .projects h2 {
     font-size: 36px;
     margin-bottom: 50px;
     color: #333;
+    transition: color 0.5s, transform 0.5s;
+    position: relative;
+    z-index: 1;
+}
+
+.projects:hover h2 {
+    color: #ff7e5f;
+    transform: rotate(5deg);
 }
 
 .project-gallery {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
+    position: relative;
+    z-index: 1;
 }
 
 .project {
@@ -228,67 +351,96 @@ header .contact-info a:hover {
     overflow: hidden;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.project:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 .project img {
     width: 100%;
-    height: auto;
+    height: 300px;
+    object-fit: cover;
     transition: transform 0.3s, filter 0.3s;
 }
 
-.project h3 {
+.project-info {
     position: absolute;
     bottom: 20px;
     left: 20px;
+    right: 20px;
     color: white;
     background-color: rgba(0, 0, 0, 0.7);
-    padding: 5px 10px;
+    padding: 15px;
     border-radius: 5px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.project:hover .project-info {
+    opacity: 1;
+}
+
+.project h3 {
+    font-size: 18px;
 }
 
 .project p {
-    position: absolute;
-    bottom: 50px;
-    left: 20px;
-    color: white;
-    background-color: rgba(0, 0, 0, 0.7);
-    padding: 5px 10px;
-    border-radius: 5px;
+    font-size: 14px;
 }
 
-.project:hover img {
-    transform: scale(1.1);
-    filter: brightness(0.7);
-}
-
-/* Testimonials Section */
 .testimonials {
-    padding: 80px 0;
-    background-color: #feb27b;
+    padding: 200px 20px;
+    background: #f8f9fa;
     text-align: center;
-    color: white;
+    color: #333;
     position: relative;
     overflow: hidden;
+}
+
+.testimonials::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 200%;
+    background: rgba(255, 119, 0, 0.767);
+    border-radius: 50%;
+    animation: rotate 20s linear infinite;
+    z-index: 0;
 }
 
 .testimonials h2 {
     font-size: 36px;
     margin-bottom: 30px;
+    position: relative;
+    z-index: 1;
+    animation: fadeInDown 1s ease-out;
 }
 
 .testimonial-slider {
     position: relative;
-    width: 100%;
+    width: 80%;
+    margin: 0 auto;
     overflow: hidden;
-    display: flex;
-    justify-content: center;
 }
 
 .testimonial {
     position: absolute;
-    width: 80%;
+    width: 100%;
     opacity: 0;
     transition: opacity 0.5s;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    max-width: 600px;
+    margin: 0 auto;
+    z-index: 1;
+    animation: slideIn 1s ease-out;
 }
 
 .testimonial.active {
@@ -296,21 +448,49 @@ header .contact-info a:hover {
     position: static;
 }
 
-.testimonial p {
+.testimonial-content p {
     font-size: 18px;
     margin-bottom: 20px;
+    line-height: 1.5;
 }
 
-.testimonial h4 {
-    font-size: 16px;
-    font-weight: 700;
+.testimonial-content h4 {
+    font-size: 20px;
+    font-weight: 600;
 }
 
-/* Contact Section */
+.testimonial-controls {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    gap: 15px;
+}
+
+.testimonial-controls button {
+    background-color: #ffffff;
+    border: 2px solid #feb27b;
+    color: #feb27b;
+    font-size: 24px;
+    padding: 12px 25px;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+    font-weight: bold;
+}
+
+.testimonial-controls button:hover {
+    background-color: #feb27b;
+    color: #ffffff;
+    border-color: #feb27b;
+}
+
 .contact {
-    padding: 80px 0;
+    padding: 200px 0;
     background-color: #f9f9f9;
     text-align: center;
+    position: relative;
+    overflow: hidden;
 }
 
 .contact h2 {
@@ -338,6 +518,12 @@ header .contact-info a:hover {
     border: 1px solid #ddd;
     border-radius: 5px;
     font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #ff7e5f;
 }
 
 .contact .btn {
@@ -347,56 +533,198 @@ header .contact-info a:hover {
     text-decoration: none;
     font-weight: 600;
     border-radius: 5px;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, transform 0.3s;
 }
 
 .contact .btn:hover {
     background-color: #feb27b;
+    transform: scale(1.05);
 }
 
-/* Footer */
+/* Modal Background */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: tomato;
+    color: white;
+    border-radius: 25px;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%; /* Could be more or less, depending on screen size */
+}
+
+/* Close Button */
+.close-btn {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
 footer {
     background-color: #333;
     color: white;
     text-align: center;
-    padding: 20px;
+    padding: 10px;
+    position: relative;
+    overflow: hidden;
 }
 
 .footer-content {
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: relative;
+    z-index: 1;
 }
 
-.footer-content p {
-    margin-bottom: 10px;
+.footer-content::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    animation: pulse 20s infinite;
+    z-index: 0;
 }
 
 .footer-content .social-media {
     list-style: none;
     display: flex;
     gap: 15px;
+    margin: 10px 0;
 }
 
 .footer-content .social-media li a {
     color: white;
     font-size: 20px;
-    transition: color 0.3s;
+    transition: color 0.3s, transform 0.3s;
 }
 
 .footer-content .social-media li a:hover {
     color: #ff7e5f;
+    transform: scale(1.2);
 }
 
-/* Responsive Styles */
-@media (max-width: 768px) {
-    .header nav ul {
-        flex-direction: column;
-        gap: 10px;
+@media screen and (max-width: 768px) {
+    .hero h2 {
+        font-size: 36px;
     }
 
-    .footer-content {
-        flex-direction: column;
-        gap: 10px;
+    .hero p {
+        font-size: 16px;
+    }
+
+    .services, .about-us, .projects, .testimonials {
+        padding: 100px 0;
+    }
+}
+
+/* Keyframe Animations */
+@keyframes pulse {
+    0% {
+        transform: scale(0.9);
+        opacity: 0.1;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 0.3;
+    }
+    100% {
+        transform: scale(0.9);
+        opacity: 0.1;
+    }
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes bounceIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.3);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .hero h2 {
+        font-size: 36px;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    .services, .about-us, .projects, .testimonials {
+        padding: 100px 0;
     }
 }

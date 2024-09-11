@@ -4,9 +4,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Creative Digital Agency</title>
+    <title>Creative Agency</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 </head>
 <body>
@@ -16,7 +18,11 @@
     <!-- Header -->
     <header>
         <div class="logo">
-            <h1><span class="highlight">Creative</span> Agency</h1>
+            <img src="logo.png" alt="logo">
+            <h1>
+                <span class="highlight orange">Creative</span> 
+                <span class="highlight white">Agency</span>
+            </h1>
         </div>
         <nav>
             <ul>
@@ -36,7 +42,7 @@
     
     <!-- Hero Section -->
     <section class="hero" id="home">
-        <h2>We Are a <span class="highlight">Creative Digital Agency</span></h2>
+        <h2>We Are a <span class="highlight">Creative Agency.</span></h2>
         <p>We help businesses grow by delivering outstanding digital solutions.</p>
         <a href="#services" class="btn">Explore Services</a>
         <a href="#contact" class="btn btn-secondary">Get in Touch</a>
@@ -47,22 +53,22 @@
         <h2>Our Amazing Services</h2>
         <div class="service-cards">
             <div class="service">
-                <img src="images/ux-design.png" alt="User Experience">
+                <img src="https://hogoco.com/wp-content/uploads/2024/03/Need-of-UX-in-digital-marketing-.jpg" alt="User Experience">
                 <h3>User Experience</h3>
                 <p>Crafting intuitive and engaging user experiences that resonate with your audience.</p>
             </div>
             <div class="service">
-                <img src="images/creative-design.png" alt="Creative Design">
+                <img src="https://d3o5s7owoun4ez.cloudfront.net/service-page-images/main-images/creative-design-solution.webp" alt="Creative Design">
                 <h3>Creative Design</h3>
                 <p>Designs that captivate and convert, ensuring your brand stands out.</p>
             </div>
             <div class="service">
-                <img src="images/digital-strategy.png" alt="Digital Strategy">
+                <img src="https://web-companies.com/blog/wp-content/uploads/2017/08/enterprisedigitalstrategy21.jpg" alt="Digital Strategy">
                 <h3>Digital Strategy</h3>
                 <p>Developing innovative digital strategies tailored to your business goals.</p>
             </div>
             <div class="service">
-                <img src="images/web-development.png" alt="Web Development">
+                <img src="https://images.prismic.io//intuzwebsite/4b74ec65-7ee2-4134-a612-6d96a6bd9278_Web+Development.png?w=1200&q=80&auto=format,compress&fm=png8" alt="Web Development">
                 <h3>Web Development</h3>
                 <p>Building responsive and robust websites to drive your business forward.</p>
             </div>
@@ -81,23 +87,29 @@
         <h2>Our Recent Projects</h2>
         <div class="project-gallery">
             <div class="project">
-                <img src="images/project1.jpg" alt="Project 1">
-                <h3>Project Alpha</h3>
-                <p>A groundbreaking digital transformation project for a leading retailer.</p>
+                <img src="https://images.unsplash.com/photo-1510238890104-d15a38f787b6?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Project Alpha">
+                <div class="project-info">
+                    <h3>Project Alpha</h3>
+                    <p>A groundbreaking digital transformation project for a leading retailer.</p>
+                </div>
             </div>
             <div class="project">
-                <img src="images/project2.jpg" alt="Project 2">
-                <h3>Project Beta</h3>
-                <p>Innovative UX/UI redesign for a global tech company.</p>
+                <img src="https://images.unsplash.com/photo-1690106505816-6ba357b09c45?q=80&w=1952&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Project Beta">
+                <div class="project-info">
+                    <h3>Project Beta</h3>
+                    <p>Innovative UX/UI redesign for a global tech company.</p>
+                </div>
             </div>
             <div class="project">
-                <img src="images/project3.jpg" alt="Project 3">
-                <h3>Project Gamma</h3>
-                <p>Comprehensive web development for a renowned educational institution.</p>
+                <img src="https://images.unsplash.com/photo-1585076641399-5c06d1b3365f?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Project Gamma">
+                <div class="project-info">
+                    <h3>Project Gamma</h3>
+                    <p>Comprehensive web development for a renowned educational institution.</p>
+                </div>
             </div>
         </div>
     </section>
-    
+
     <!-- Testimonials Section -->
     <section class="testimonials" id="testimonials">
         <h2>What Our Clients Say</h2>
@@ -120,7 +132,7 @@
     <!-- Contact Section -->
     <section class="contact" id="contact">
         <h2>Contact Us</h2>
-        <form action="#" method="POST">
+        <form id="contact-form" action="#" method="POST">
             <div class="form-group">
                 <input type="text" name="name" placeholder="Your Name" required>
             </div>
@@ -132,6 +144,13 @@
             </div>
             <button type="submit" class="btn">Send Message</button>
         </form>
+
+        <div id="custom-alert" class="modal">
+            <div class="modal-content">
+                <span class="close-btn">&times;</span>
+                <p id="alert-message">Thank you! This is a dummy site, so no actual submission will occur.</p>
+            </div>
+        </div>
     </section>
     
     <!-- Footer -->
@@ -146,7 +165,7 @@
             </ul>
         </div>
     </footer>
-
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
     <script src="scripts.js"></script>
 </body>
 </html>

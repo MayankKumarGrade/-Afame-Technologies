@@ -100,7 +100,7 @@ body {
 }
 
 .calculator {
-    background-color: white;
+    background-color: rgba(255, 255, 246, 0.726);
     border-radius: 10px;
     box-shadow: 0 10px 20px rgba(255, 255, 255, 0.419);
     width: 100%;
@@ -166,7 +166,7 @@ body {
 }
 
 .btn.backspace:hover {
-    background-color: #afafaf;
+    background-color: #ff6e6e;
     box-shadow: 0 5px 15px rgba(95, 95, 95, 0.5);
 }
 
