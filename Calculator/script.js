@@ -13,34 +13,28 @@ document.addEventListener('DOMContentLoaded', function () {
     let calculationHistory = [];
     let longPressTimer;
 
-    // Create a shadow element for the cursor
     const cursor = document.createElement('div');
     cursor.className = 'cursor-shadow';
     document.body.appendChild(cursor);
 
-    // Particle Background Animation
     particlesJS.load('particles-js', 'particles.json', function() {
         console.log('Particles.js config loaded');
     });
 
-    // Update cursor position
     document.addEventListener('mousemove', function (e) {
         cursor.style.left = e.pageX + 'px';
         cursor.style.top = e.pageY + 'px';
     });
 
-    // Toggle History Panel visibility
     historyButton.addEventListener('click', function () {
         historyPanel.style.display = historyPanel.style.display === 'block' ? 'none' : 'block';
     });
 
-    // Clear history using the new button
     clearHistoryButton.addEventListener('click', function () {
         calculationHistory = [];
         fullHistory.innerHTML = '';
     });
 
-    // Handle button clicks
     buttons.forEach(button => {
         button.addEventListener('click', function () {
             const value = this.getAttribute('data-value');
@@ -48,7 +42,6 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // Handle keyboard input
     document.addEventListener('keydown', function (e) {
         if (e.key.match(/[0-9\/*\-+.%]/)) {
             handleInput(e.key);
@@ -61,7 +54,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    // Handle backspace long press
     const backspaceButton = document.querySelector('.btn.backspace');
     backspaceButton.addEventListener('mousedown', function () {
         longPressTimer = setTimeout(function () {
@@ -80,7 +72,6 @@ document.addEventListener('DOMContentLoaded', function () {
         clearTimeout(longPressTimer);
     });
 
-    // Function to handle calculator input
     function handleInput(input) {
         if (input === 'C') {
             currentInput = '';
@@ -91,7 +82,6 @@ document.addEventListener('DOMContentLoaded', function () {
         } else if (input === '=') {
             calculateResult();
         } else {
-            // Map displayed operators to logical operators
             const operatorMap = {
                 '÷': '/',
                 'x': '*'
@@ -102,18 +92,14 @@ document.addEventListener('DOMContentLoaded', function () {
         updateCaretPosition();
     }    
         
-    // Function to calculate the result
     function calculateResult() {
         try {
-            // Convert the input to use logical operators
             const sanitizedInput = currentInput.replace(/[^-()\d/*+.]/g, '');
             if (sanitizedInput) {
-                // Evaluate the expression
                 const result = Function('"use strict";return (' + sanitizedInput + ')')();
                 if (result === Infinity || result === -Infinity) {
                     throw new Error("Divide by zero");
                 }
-                // Store history with visual operators
                 calculationHistory.push(currentInput.replace(/\*/g, 'x').replace(/\//g, '÷') + ' = ' + result);
                 fullHistory.innerHTML = calculationHistory.join('<br>');
                 currentInput = result.toString();
@@ -129,7 +115,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
     
-    // Function to update caret position
     function updateCaretPosition() {
         const caret = document.querySelector('.caret');
         const displayWidth = display.offsetWidth;
@@ -140,7 +125,6 @@ document.addEventListener('DOMContentLoaded', function () {
         caret.style.top = `calc(50% - ${caret.offsetHeight / 2}px)`;
     }
 
-    // Initial caret position setup and attach to input event
     updateCaretPosition();
     document.addEventListener('input', updateCaretPosition);
 
