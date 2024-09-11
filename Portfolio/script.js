@@ -1,27 +1,43 @@
-const body = document.body;
+let sections = document.querySelectorAll("section");
+let navLinks = document.querySelectorAll("header nav a");
 
-document.getElementById("modeSwitch").addEventListener("change", () => {
-  body.classList.toggle("dark-mode");
-});
+let navbar = document.querySelector(".navigation");
 
-document.getElementById("burger").addEventListener("change", function() {
-  const navLinks = document.querySelector(".mobile-links");
-  if (this.checked) {
-    navLinks.classList.add("open-nav");
-  } else {
-    navLinks.classList.remove("open-nav");
-  }
-});
+window.onscroll = () => {
+  sections.forEach(sec => {
+    let top = window.scrollY;
+    let offset = sec.offsetTop - 150;
+    let height = sec.offsetHeight;
+    let id = sec.getAttribute("id");
 
-const links = document.querySelectorAll(".mobile-links a");
-links.forEach(link => {
-  link.addEventListener("click", function() {
-    document.getElementById("burger").checked = false;
-    document.querySelector(".mobile-links").classList.remove("open-nav");
+    if (top >= offset && top < offset + height) {
+      navLinks.forEach(links => {
+        links.classList.remove("active");
+        document
+          .querySelector("header nav a[href*=" + id + "]")
+          .classList.add("active");
+      });
+    }
   });
-});
+};
 
-const words = ["Student.", "Learner.", "Coder.", "Web Developer.", "Computer Science Enthusiast."];
+const words = [
+  "Student.", 
+  "Learner.", 
+  "Web Developer.", 
+  "Computer Science Enthusiast.",
+  "Tech Explorer.", 
+  "Problem Solver.", 
+  "Software Engineer.", 
+  "Creative Thinker.", 
+  "Team Collaborator.", 
+  "Tech Innovator.", 
+  "Programming Enthusiast.", 
+  "Full Stack Developer.", 
+  "UI/UX Enthusiast.", 
+  "Lifelong Learner.", 
+  "Algorithm Designer."
+];
 const typingSpeed = 200;
 const erasingSpeed = 100;
 const delayBetweenWords = 1500;
@@ -58,38 +74,4 @@ function type() {
 
 document.addEventListener("DOMContentLoaded", () => {
   setTimeout(type, delayBetweenWords);
-});
-
-const form = document.getElementById('contact-form');
-const modal = document.getElementById('custom-alert');
-const closeBtn = document.querySelector('.close-btn');
-const submitBtn = document.getElementById('submit-btn');
-
-if (submitBtn) {
-    submitBtn.addEventListener('click', function (event) {
-        event.preventDefault();
-        console.log('Submit button clicked');
-        if (modal) {
-            modal.style.display = 'block';
-        }
-        if (form) {
-            form.reset();
-        }
-    });
-}
-
-if (closeBtn) {
-    closeBtn.addEventListener('click', function () {
-        if (modal) {
-            modal.style.display = 'none';
-        }
-    });
-}
-
-window.addEventListener('click', function (event) {
-    if (event.target === modal) {
-        if (modal) {
-            modal.style.display = 'none';
-        }
-    }
 });

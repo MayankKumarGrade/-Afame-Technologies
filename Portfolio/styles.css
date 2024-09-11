@@ -189,6 +189,10 @@ section {
   font-weight: 600;
 }
 
+.me-as {
+  font-size: 3rem;
+}
+
 @keyframes floatImage {
   0% {
     transform: scale(0.9);
