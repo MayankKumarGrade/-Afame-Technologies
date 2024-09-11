@@ -21,7 +21,6 @@ links.forEach(link => {
   });
 });
 
-// Typing animation
 const words = ["Student.", "Learner.", "Coder.", "Web Developer.", "Computer Science Enthusiast."];
 const typingSpeed = 200;
 const erasingSpeed = 100;
@@ -64,36 +63,33 @@ document.addEventListener("DOMContentLoaded", () => {
 const form = document.getElementById('contact-form');
 const modal = document.getElementById('custom-alert');
 const closeBtn = document.querySelector('.close-btn');
-const submitBtn = document.getElementById('submit-btn'); // Reference to the button
+const submitBtn = document.getElementById('submit-btn');
 
-// Handle button click
 if (submitBtn) {
     submitBtn.addEventListener('click', function (event) {
-        event.preventDefault(); // Prevent default form submission
-        console.log('Submit button clicked'); // Debugging line
+        event.preventDefault();
+        console.log('Submit button clicked');
         if (modal) {
-            modal.style.display = 'block'; // Show custom alert
+            modal.style.display = 'block';
         }
         if (form) {
-            form.reset(); // Reset the form
+            form.reset();
         }
     });
 }
 
-// Close the modal when the user clicks on the close button
 if (closeBtn) {
     closeBtn.addEventListener('click', function () {
         if (modal) {
-            modal.style.display = 'none'; // Hide the custom alert
+            modal.style.display = 'none';
         }
     });
 }
 
-// Close the modal when the user clicks outside of the modal
 window.addEventListener('click', function (event) {
     if (event.target === modal) {
         if (modal) {
-            modal.style.display = 'none'; // Hide the custom alert
+            modal.style.display = 'none';
         }
     }
 });
