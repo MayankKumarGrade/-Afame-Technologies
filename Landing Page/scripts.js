@@ -1,15 +1,13 @@
 document.addEventListener('DOMContentLoaded', function () {
-    // Initialize AOS (Animate On Scroll)
+
     AOS.init({
         duration: 1200,
     });
 
-    // Particle Background Animation
     particlesJS.load('particles-js', 'particles.json', function() {
         console.log('particles.js loaded.');
     });
 
-    // Testimonials Slider
     const testimonials = document.querySelectorAll('.testimonial');
     let index = 0;
 
@@ -30,10 +28,8 @@ document.addEventListener('DOMContentLoaded', function () {
         showTestimonial(index);
     }
 
-    // Automatically change testimonials every 5 seconds
     setInterval(nextTestimonial, 5000);
 
-    // Attach event listeners for manual navigation
     const prevButton = document.getElementById('prev');
     const nextButton = document.getElementById('next');
 
@@ -48,23 +44,21 @@ document.addEventListener('DOMContentLoaded', function () {
 
     if (form) {
         form.addEventListener('submit', function (event) {
-            event.preventDefault(); // Prevent the default form submission
-            modal.style.display = 'block'; // Show the custom alert
+            event.preventDefault();
+            modal.style.display = 'block';
             form.reset();
         });
     }
 
-    // Close the modal when the user clicks on the close button
     if (closeBtn) {
         closeBtn.addEventListener('click', function () {
-            modal.style.display = 'none'; // Hide the custom alert
+            modal.style.display = 'none';
         });
     }
 
-    // Close the modal when the user clicks anywhere outside of the modal
     window.addEventListener('click', function (event) {
         if (event.target === modal) {
-            modal.style.display = 'none'; // Hide the custom alert
+            modal.style.display = 'none';
         }
     });
 });
